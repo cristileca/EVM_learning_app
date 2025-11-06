@@ -46,7 +46,7 @@ function App() {
           🧪 Mini Ethereum Lab
         </h1>
 
-        <LocalWallet backend={backend} setAddr={setAddr} setBalance={setBalance} />
+        <LocalWallet backend={backend} setAddr={setAddr} setBalance={setBalance} userAddress={userAddress}/> 
 
         <WalletConnect
           walletConnected={walletConnected}
