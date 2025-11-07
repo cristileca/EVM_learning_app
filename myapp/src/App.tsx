@@ -41,12 +41,23 @@ function App() {
 
   return (
     <div className="min-h-screen bg-black flex items-center justify-center">
-      <div className="w-full max-w-md p-6 bg-gray-900 rounded-2xl shadow">
+      <div className="w-full p-6 bg-gray-900 rounded-2xl shadow">
         <h1 className="text-2xl text-white font-semibold mb-4 text-center">
           🧪 Mini Ethereum Lab
         </h1>
+        
+        <BalanceChecker
+          addr={addr}
+          setAddr={setAddr}
+          balance={balance}
+          setBalance={setBalance}
+          backend={backend}
+        />
 
-        <LocalWallet backend={backend} setAddr={setAddr} setBalance={setBalance} userAddress={userAddress}/> 
+        <LocalWallet backend={backend} setAddr={setAddr} setBalance={setBalance} userAddress={userAddress}/>
+
+
+        {/* <LocalWallet backend={backend} setAddr={setAddr} setBalance={setBalance} userAddress={userAddress}/> 
 
         <WalletConnect
           walletConnected={walletConnected}
@@ -82,7 +93,7 @@ function App() {
           userTxs={userTxs}
           getTransactions={getTransactions}
           walletConnected={walletConnected}
-        />
+        /> */}
       </div>
     </div>
   );

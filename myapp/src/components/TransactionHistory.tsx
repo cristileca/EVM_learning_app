@@ -40,7 +40,7 @@ export default function TransactionHistory({ userTxs, getTransactions, walletCon
               <div key={i} className="border-b border-gray-700 py-3 last:border-b-0">
                 <div className="grid grid-cols-[100px_1fr] gap-2">
                   <span className="text-gray-400">Hash:</span>
-                  <span className="font-mono">{tx.hash.slice(0, 20)}...</span>
+                  <span className="font-mono">{tx.hash}...</span>
 
                   <span className="text-gray-400">From:</span>
                   <span className="font-mono">{tx.from.slice(0, 10)}...</span>
@@ -61,7 +61,8 @@ export default function TransactionHistory({ userTxs, getTransactions, walletCon
 
                   <span className="text-gray-400">Timestamp:</span>
                   <span>{tx.timeStamp ? new Date(parseInt(tx.timeStamp) * 1000).toLocaleString() : "-"}</span>
-
+                  <span className="text-gray-400">Address</span>
+                  <span>{tx.contractAddress || "N/A"}</span>
                   <span className="text-gray-400">Confirmations:</span>
                   <span>{tx.confirmations || 0}</span>
                 </div>

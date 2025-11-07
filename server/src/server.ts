@@ -37,6 +37,24 @@ app.get("/", (req: Request, res: Response) => {
   res.send("Hello World!");
 });
 
+// Get list of coins from CoinMarketCap API
+app.get("/api/coins", async (req, res) => {
+  try {
+    const response = await axios.get(
+      "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest",
+      {
+        headers: {
+          "X-CMC_PRO_API_KEY": "968a596449d94adf81e5e051e7e49e98",
+        },
+      }
+    );
+    res.json(response.data);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Failed to fetch coins" });
+  }
+});
+
 // 1️⃣ Get balance of an address
 app.get("/balance/:address", async (req: Request, res: Response) => {
   try {
@@ -97,3 +115,4 @@ app.get("/txs/:address", async (req, res) => {
 app.listen(port, () => {
   console.log(`✅ Server running at http://localhost:${port}`);
 });
+
